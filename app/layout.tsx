@@ -16,10 +16,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script type="module" src="https://unpkg.com/prettier@3.4.2/standalone.mjs"></script>
-        <script type="module" src="https://unpkg.com/prettier@3.4.2/plugins/graphql.mjs"></script>
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
