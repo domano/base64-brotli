@@ -112,7 +112,25 @@ export default function Decoder() {
 
         {output && (
           <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-200">Output:</label>
+            <div className="flex items-center justify-between">
+              <label className="block text-sm font-medium text-gray-200">Output:</label>
+              <button
+                onClick={async () => {
+                  await navigator.clipboard.writeText(output);
+                  const btn = document.getElementById('copyBtn');
+                  if (btn) {
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => {
+                      btn.textContent = 'Copy to Clipboard';
+                    }, 2000);
+                  }
+                }}
+                id="copyBtn"
+                className="px-3 py-1 text-sm bg-gray-700 text-gray-200 rounded hover:bg-gray-600 transition-colors"
+              >
+                Copy to Clipboard
+              </button>
+            </div>
             <pre className="w-full p-4 bg-gray-800 rounded-lg overflow-auto font-mono text-sm whitespace-pre-wrap text-gray-200 border border-gray-700">
               {output}
             </pre>
